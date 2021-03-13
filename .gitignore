@@ -1,0 +1,8 @@
+*.sqlite3
+*.lock
+.idea/
+__pycache__/
+*.py[cod]
+files/
+**/ __pycache__
+.python-version
