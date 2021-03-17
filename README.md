@@ -19,7 +19,7 @@ poetry shell
 
 #### Start server
 ```shell
-python manage.py runserver 8001
+cd src && python manage.py runserver 8001
 ```
 
 ## Client
