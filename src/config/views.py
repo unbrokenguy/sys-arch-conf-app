@@ -1,13 +1,13 @@
 import json
 
 from django.http import JsonResponse, HttpResponse
+from server.settings import DATABASE
 
 
 def get_config(request, operation):
+    config = DATABASE
     if request.method == "GET":
-        config = json.loads(open("config.json", 'r').read())
         if operation == "data":
-            config = config[0]
             url = f"postgresql+psycopg2://{config['USER']}:{config['PASSWORD']}@" \
                   f"{config['HOST']}:{config['PORT']}/{config['NAME']}"
             return JsonResponse(data={"url": url})

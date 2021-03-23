@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = "&=4g05hb_uiopqn_87i_c&lp-6x)y4c_7d6#qn8$fmv28r&6e-"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -79,7 +80,14 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
+config = json.loads(open("config.json", "r").read())[0]
+DATABASE = {
+    "USER": os.getenv("POSTGRES_USER") or config['USER'],
+    "PASSWORD": os.getenv("POSTGRES_PASSWORD") or config['PASSWORD'],
+    "HOST": os.getenv("POSTGRES_HOST") or config['HOST'],
+    "NAME": os.getenv("POSTGRES_NAME") or config['NAME'],
+    "PORT": "5432"
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
