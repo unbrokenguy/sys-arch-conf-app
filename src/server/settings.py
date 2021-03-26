@@ -82,11 +82,11 @@ DATABASES = {
 }
 config = json.loads(open("config.json", "r").read())[0]
 DATABASE = {
-    "USER": os.getenv("POSTGRES_USER") or config['USER'],
-    "PASSWORD": os.getenv("POSTGRES_PASSWORD") or config['PASSWORD'],
-    "HOST": os.getenv("POSTGRES_HOST") or config['HOST'],
-    "NAME": os.getenv("POSTGRES_NAME") or config['NAME'],
-    "PORT": "5432"
+    "USER": os.getenv("POSTGRES_USER") or config["USER"],
+    "PASSWORD": os.getenv("POSTGRES_PASSWORD") or config["PASSWORD"],
+    "HOST": os.getenv("POSTGRES_HOST") or config["HOST"],
+    "NAME": os.getenv("POSTGRES_NAME") or config["NAME"],
+    "PORT": "5432",
 }
 
 # Password validation

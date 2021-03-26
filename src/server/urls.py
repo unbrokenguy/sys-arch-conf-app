@@ -20,5 +20,5 @@ from config.views import get_config
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("config/<slug:operation>", get_config)
+    path("config/<slug:operation>", get_config),
 ]
